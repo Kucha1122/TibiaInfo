@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "TibiaInfo.Infrastructure/1.0.0": {
+        "dependencies": {
+          "TibiaInfo.Core": "1.0.0"
+        },
+        "runtime": {
+          "TibiaInfo.Infrastructure.dll": {}
+        }
+      },
+      "TibiaInfo.Core/1.0.0": {
+        "runtime": {
+          "TibiaInfo.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TibiaInfo.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TibiaInfo.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

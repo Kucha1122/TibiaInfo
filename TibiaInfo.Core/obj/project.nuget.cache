@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Er+OoOREDggwvffiLk2LRHisUxGz5obmo0CiIj0ROsbynTo0/rIwoVfzOOgYnGforll0CrpaHSibLN2EqMKZqA==",
+  "dgSpecHash": "/e+q17aVsaQj75+C6AeC+zYZk22IvnKjlSAvslRzaDOySWYU5fqtgvDC5DMYeCXmSnjG0CsVJ6aWQoCV0POq9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\kucha\\source\\repos\\TibiaInfo\\TibiaInfo.Core\\TibiaInfo.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\kucha\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\kucha\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,9 @@
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\bin\Debug\netcoreapp3.1\TibiaInfo.Core.deps.json
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\bin\Debug\netcoreapp3.1\TibiaInfo.Core.dll
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\bin\Debug\netcoreapp3.1\TibiaInfo.Core.pdb
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.csprojAssemblyReference.cache
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.AssemblyInfoInputs.cache
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.AssemblyInfo.cs
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.csproj.CoreCompileInputs.cache
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.dll
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Core\obj\Debug\netcoreapp3.1\TibiaInfo.Core.pdb
