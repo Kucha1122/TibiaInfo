@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TibiaInfo.Core.Domain
+namespace TibiaInfo.Core.Models
 {
     public class User : Entity
     {

@@ -1,6 +1,7 @@
 using System;
+using System.Collections.Generic;
 
-namespace TibiaInfo.Core.Domain
+namespace TibiaInfo.Core.Models
 {
     public class TibiaCharacter : Entity
     {
@@ -16,5 +17,7 @@ namespace TibiaInfo.Core.Domain
         public string AccountStatus { get; set; }
         public string LoyaltyTitle { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public IList<Hunting> Huntings { get; set; }
     }
 }

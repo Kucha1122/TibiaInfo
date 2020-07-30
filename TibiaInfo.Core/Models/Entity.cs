@@ -1,6 +1,6 @@
 using System;
 
-namespace TibiaInfo.Core.Domain
+namespace TibiaInfo.Core.Models
 {
     public abstract class Entity
     {
