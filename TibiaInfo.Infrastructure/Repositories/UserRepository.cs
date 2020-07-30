@@ -20,6 +20,9 @@ namespace TibiaInfo.Infrastructure.Repositories
         public async Task<User> GetAsync(Guid id)
             => await Task.FromResult(_context.Users.SingleOrDefault(x => x.Id == id));
 
+        public async Task<User> GetAsync(string login)
+            => await Task.FromResult(_context.Users.SingleOrDefault(x => x.Login == login));
+
         public async Task<IEnumerable<User>> BrowseAsyncAllUsers()
         {
             var users = _context.Users.AsEnumerable();

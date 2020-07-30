@@ -41,3 +41,4 @@ C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.API\bin\Debug\netcoreapp3.1\Micr
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.API\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.API\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll

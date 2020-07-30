@@ -9,8 +9,7 @@ namespace TibiaInfo.Infrastructure.Services
     {
         Task<UserDTO> Authenticate(string login, string password);
         Task<UserDTO> GetById(Guid id);
-        Task<IEnumerable<UserDTO>> GetAll();
-        Task<UserDTO> Create(UserDTO user);
+        Task RegisterAsync(Guid userId, string login, string password, string role = "user");
         Task Delete(Guid id);
         
     }

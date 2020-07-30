@@ -9,6 +9,7 @@ namespace TibiaInfo.Core.Interfaces
     public interface IUserRepository
     {
         Task<User> GetAsync(Guid id);
+        Task<User> GetAsync(string login);
         Task<IEnumerable<User>> BrowseAsyncAllUsers();
         Task AddAsync(User user);
         Task DeleteAsync(User user);

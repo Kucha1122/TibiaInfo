@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using TibiaInfo.Core.Models;
 using TibiaInfo.Infrastructure.Context;
 using TibiaInfo.Infrastructure.DTO;
 
@@ -9,9 +11,11 @@ namespace TibiaInfo.Infrastructure.Services
     public class UserService : IUserService
     {
         private AppDbContext _context;
-        public UserService(AppDbContext context)
+        private IMapper _mapper;
+        public UserService(AppDbContext context, IMapper mapper)
         {
-            
+            _context = context;
+            _mapper = mapper;
         }
 
         public Task<UserDTO> Authenticate(string login, string password)
@@ -19,24 +23,45 @@ namespace TibiaInfo.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<UserDTO> Create(UserDTO user)
+        public async Task RegisterAsync(Guid userId, string login, string password, string role = "user")
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FindAsync(login);
+            try
+            {
+                if(user == null)
+                {
+                    user = new User(userId, role, login, password);
+                    await _context.Users.AddAsync(user);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"User with login: '{login}' already exists.", e);
+            }
         }
 
-        public Task Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FindAsync(id);
+            try
+            {
+                if(user != null)
+                {
+                    _context.Users.Remove(user);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
 
-        public Task<IEnumerable<UserDTO>> GetAll()
+        public async Task<UserDTO> GetById(Guid id)
         {
-            throw new NotImplementedException();
-        }
+            var user = await _context.Users.FindAsync(id);
 
-        public Task<UserDTO> GetById(Guid id)
-        {
-            throw new NotImplementedException();
+            return _mapper.Map<UserDTO>(user);
         }
     }
 }

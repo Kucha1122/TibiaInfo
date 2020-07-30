@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DU8Q4MlA2xsOtFe8PTNKS28Ylgr1nf/bftGpKOJxnUaPbl+BKrly033ZYQxVzWWxY8Dg6VN/C46SyC9/nWCECQ==",
+  "dgSpecHash": "DRQzV30JhoLrnYGb4H6RQzEF53zpYpdH/Y1EoaRJZeoUx2U+NeUcLEOi6sMJPNvbMdrE6fYS4y+Q3tTthEFxrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\kucha\\source\\repos\\TibiaInfo\\TibiaInfo.API\\TibiaInfo.API.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.6\\microsoft.entityframeworkcore.3.1.6.nupkg.sha512",
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.6\\microsoft.entityframeworkcore.abstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.6\\microsoft.entityframeworkcore.analyzers.3.1.6.nupkg.sha512",
+    "C:\\Users\\kucha\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\3.1.6\\microsoft.entityframeworkcore.inmemory.3.1.6.nupkg.sha512",
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.6\\microsoft.extensions.caching.abstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.6\\microsoft.extensions.caching.memory.3.1.6.nupkg.sha512",
     "C:\\Users\\kucha\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.6\\microsoft.extensions.configuration.3.1.6.nupkg.sha512",
