@@ -5,22 +5,42 @@ using AutoMapper;
 using TibiaInfo.Core.Interfaces;
 using TibiaInfo.Core.Models;
 using TibiaInfo.Infrastructure.DTO;
+using TibiaInfo.Infrastructure.Handlers;
 
 namespace TibiaInfo.Infrastructure.Services
 {
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IJwtHandler _jwtHandler;
         private readonly IMapper _mapper;
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, IJwtHandler jwtHandler)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _jwtHandler = jwtHandler;
         }
 
-        public Task<UserDTO> Authenticate(string login, string password)
+        public async Task<TokenDTO> Authenticate(string login, string password)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetAsync(login);
+            if(user == null)
+            {
+                throw new Exception("Invalid Credentials.");
+            }
+            if(user.Password != password)
+            {
+                throw new Exception("Invalid Credentials.");
+            }
+
+            var jwt = _jwtHandler.CreateToken(user.Id, user.Role);
+
+            return new TokenDTO
+            {
+                Token = jwt.Token,
+                Expires = jwt.Expires,
+                Role = user.Role
+            };
         }
 
         public async Task RegisterAsync(Guid userId, string login, string password, string role = "user")

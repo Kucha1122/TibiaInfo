@@ -46,8 +46,8 @@ namespace TibiaInfo.API.Controllers
         {
             try
             {
-                await _userService.Authenticate(command.Login, command.Password);
-                return Ok();
+                var token = await _userService.Authenticate(command.Login, command.Password);
+                return Ok(token);
             }
             catch (ApplicationException e)
             {
@@ -55,6 +55,7 @@ namespace TibiaInfo.API.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet("all")]
         public async Task<IActionResult> Get()
         {

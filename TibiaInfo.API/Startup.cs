@@ -36,15 +36,13 @@ namespace TibiaInfo.API
         {
             RegisterServices(services);
             services.AddControllers();
-            services.AddMvc(option =>
-                option.EnableEndpointRouting = false);
             services.AddMemoryCache();
-            services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("TestDb"));
 
             services.Configure<JwtSettings>(Configuration.GetSection("jwt"));
 
-            var jwtSettings = Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+            var jwtSettings = Configuration.GetSection("jwt").Get<JwtSettings>();
+            //Console.WriteLine(jwtSettings.Key);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -67,6 +65,7 @@ namespace TibiaInfo.API
                         return Task.CompletedTask;
                     }
                 };
+                x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -75,6 +74,10 @@ namespace TibiaInfo.API
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
                 };
             });
+
+            services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
+            services.AddMvc(option =>
+                option.EnableEndpointRouting = false);
         }
 
         private static void RegisterServices(IServiceCollection services)
@@ -93,7 +96,7 @@ namespace TibiaInfo.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
