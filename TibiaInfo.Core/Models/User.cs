@@ -27,7 +27,10 @@ namespace TibiaInfo.Core.Models
 
         public User(Guid id, string role, string login, string password)
         {
-
+            Id = id;
+            SetRole(role);
+            SetLogin(login);
+            SetPassword(password);
         }
 
         public void SetLogin(string login)

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,8 +13,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using TibiaInfo.Infrastructure.Context;
 using TibiaInfo.Infrastructure.IoC;
+using TibiaInfo.Infrastructure.Services;
+using TibiaInfo.Infrastructure.Settings;
 
 namespace TibiaInfo.API
 {
@@ -30,10 +36,45 @@ namespace TibiaInfo.API
         {
             RegisterServices(services);
             services.AddControllers();
-            services.AddMvc();
+            services.AddMvc(option =>
+                option.EnableEndpointRouting = false);
             services.AddMemoryCache();
-            //services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
+            services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+
+            services.Configure<JwtSettings>(Configuration.GetSection("jwt"));
+
+            var jwtSettings = Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context => 
+                    {
+                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                        var userId = Guid.Parse(context.Principal.Identity.Name);
+                        var user = userService.GetById(userId);
+
+                        if(user == null)
+                        {
+                            context.Fail("Unauthorized");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = jwtSettings.Issuer,
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+                };
+            });
         }
 
         private static void RegisterServices(IServiceCollection services)
@@ -48,6 +89,7 @@ namespace TibiaInfo.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseHttpsRedirection();
             app.UseRouting();

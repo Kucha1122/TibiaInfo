@@ -1,10 +1,11 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using TibiaInfo.Core.Interfaces;
-using TibiaInfo.Infrastructure.Context;
+using TibiaInfo.Infrastructure.Handlers;
 using TibiaInfo.Infrastructure.Mappers;
 using TibiaInfo.Infrastructure.Repositories;
 using TibiaInfo.Infrastructure.Services;
+using TibiaInfo.Infrastructure.Settings;
 
 namespace TibiaInfo.Infrastructure.IoC
 {
@@ -18,6 +19,7 @@ namespace TibiaInfo.Infrastructure.IoC
             services.AddScoped<IUserService, UserService>();
             
             services.AddSingleton(AutoMapperConfig.Initialize());
+            services.AddSingleton<IJwtHandler,JwtHandler>();
         }
     }
 }

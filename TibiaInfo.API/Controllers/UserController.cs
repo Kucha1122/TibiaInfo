@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TibiaInfo.API.Controllers
 {
     [Route("[controller]")]
-    public class UserController : Controller
+    public class UserController : ApiControllerBase
     {
         private IUserService _userService;
         
@@ -21,14 +21,19 @@ namespace TibiaInfo.API.Controllers
         public async Task<IActionResult> GetAction(Guid UserId)
             => Json(await _userService.GetById(UserId));
 
+        [HttpPost("get")]
+        public async Task<IActionResult> GetAction(string login)
+            => Json(await _userService.GetByLogin(login));
+
         [HttpPost("register")]
         public async Task<IActionResult> Post([FromBody]Register command)
         {
             try
             {
-                await _userService.RegisterAsync(Guid.NewGuid(), command.Login,
+                var id = Guid.NewGuid();
+                 await _userService.RegisterAsync(id, command.Login,
                     command.Password, command.Role);
-                return Ok();
+                return Ok(id);
             }
             catch (ApplicationException e)
             {
@@ -50,6 +55,18 @@ namespace TibiaInfo.API.Controllers
             }
         }
 
-            
+        [HttpGet("all")]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+               var users =  await _userService.GetAllUsers();
+               return Ok(users);
+            }
+            catch (ApplicationException e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace TibiaInfo.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public AppDbContext _context;
+        private AppDbContext _context;
         
         public UserRepository(AppDbContext context)
         {
