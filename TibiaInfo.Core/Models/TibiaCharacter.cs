@@ -5,6 +5,7 @@ namespace TibiaInfo.Core.Models
 {
     public class TibiaCharacter : Entity
     {
+        public Guid UserId { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
         public string Sex { get; set; }

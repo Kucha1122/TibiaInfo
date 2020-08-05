@@ -31,7 +31,7 @@ namespace TibiaInfo.API.Controllers
             try
             {
                 var id = Guid.NewGuid();
-                 await _userService.RegisterAsync(id, command.Login,
+                await _userService.RegisterAsync(id, command.Login,
                     command.Password, command.Role);
                 return Ok(id);
             }
@@ -41,7 +41,7 @@ namespace TibiaInfo.API.Controllers
             }
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("login")]
         public async Task<IActionResult> Post([FromBody]Auth command)
         {
             try
