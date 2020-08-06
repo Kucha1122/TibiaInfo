@@ -38,6 +38,14 @@ namespace TibiaInfo.Infrastructure.Repositories
             await Task.CompletedTask;
         }
 
+        public async Task AddAsync(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            await Task.CompletedTask;
+        }
+
         public async Task DeleteAsync(User user)
         {
             _context.Remove(user);
