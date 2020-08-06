@@ -6,7 +6,7 @@ using TibiaInfo.Core.Models;
 
 namespace TibiaInfo.Core.Interfaces
 {
-    public interface ICharacterHuntingInfo
+    public interface IHuntings
     {
         Task<CharacterHuntingInfo> GetAsync(Guid id);
         Task<IEnumerable<CharacterHuntingInfo>> BrowseAsyncAllHuntings(string nickname);
