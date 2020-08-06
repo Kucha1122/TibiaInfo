@@ -38,6 +38,9 @@ namespace TibiaInfo.API
             services.AddControllers();
             services.AddMemoryCache();
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+
+            x => x.MigrationsAssembly("WebApplication")));
 
             services.Configure<JwtSettings>(Configuration.GetSection("jwt"));
 

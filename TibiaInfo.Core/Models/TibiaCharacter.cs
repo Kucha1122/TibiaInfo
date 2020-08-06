@@ -19,6 +19,8 @@ namespace TibiaInfo.Core.Models
         public string LoyaltyTitle { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public IList<Hunting> Huntings { get; set; }
+        public User User { get; set; }
+
+        public IList<Huntings> Huntings { get; set; }
     }
 }

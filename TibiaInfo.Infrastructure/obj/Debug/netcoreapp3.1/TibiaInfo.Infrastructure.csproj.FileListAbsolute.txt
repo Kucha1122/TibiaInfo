@@ -10,3 +10,6 @@ C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\obj\Debug\netcore
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\obj\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.csproj.CopyComplete
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\obj\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.dll
 C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\obj\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.pdb
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\bin\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.runtimeconfig.json
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\bin\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.runtimeconfig.dev.json
+C:\Users\kucha\source\repos\TibiaInfo\TibiaInfo.Infrastructure\obj\Debug\netcoreapp3.1\TibiaInfo.Infrastructure.genruntimeconfig.cache
