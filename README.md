@@ -1,6 +1,6 @@
-<h1 align="center">TibiaInfo<project-name></h1>
+<h1>TibiaInfo<project-name></h1>
 
-<p align="center">Web Application & Discord Bot for Tibia<project-description></p>
+<p>Web Application & Discord Bot for Tibia<project-description></p>
 
 ## Built With
 
